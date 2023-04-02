@@ -15,15 +15,27 @@ public class KMeans {
         
         int clusterNumber = 2; //declare amount of clusters
 		KMeans demo = new KMeans(); // create object 
-        //call all necessary methods 
+        //call all necessary methods
+        long startTime = System.nanoTime();
 		demo.generateData();
+        long endTime = System.nanoTime();
+        System.out.println("Runtime for method: generateData: " + ((endTime-startTime))/1000000.0); //data about running time for each method
+        startTime = System.nanoTime();
         demo.intializeClusterAndCentriod(clusterNumber);
+        endTime = System.nanoTime();
+        System.out.println("Runtime for method: intializeClusterAndCentriod: " + ((endTime-startTime))/1000000.0);
+        startTime = System.nanoTime();
         demo.printRecordInfo();
+        endTime = System.nanoTime();
+        System.out.println("Runtime for method: printRecordInfo: " + ((endTime-startTime))/1000000.0);
+        startTime = System.nanoTime();
         demo.printClusterInfo();
+        endTime = System.nanoTime();
+        System.out.println("Runtime for method: printClusterInfo: " + ((endTime-startTime))/1000000.0);
     }
 
     private void generateData(){
-        CSVHelper CSVRead = new CSVHelper("sample.csv"); // load csv file
+        CSVHelper CSVRead = new CSVHelper("sampleMd1.csv"); // load csv file
         data = CSVRead.data; //import data from the csvHelper object
     }
 
@@ -66,6 +78,7 @@ public class KMeans {
 
     private void printRecordInfo(){ //print all data points
         System.out.println("********* Data Points *************");
+        System.out.println("Number of data points: " + data.size());
         for(Point point : data){
             System.out.println(point);
         }

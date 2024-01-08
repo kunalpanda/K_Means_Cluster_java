@@ -1,5 +1,3 @@
-# K_Means_Cluster_java
- 
 # K-Means Clustering in Java
 
 ## Project Overview
